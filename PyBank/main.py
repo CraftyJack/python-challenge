@@ -42,7 +42,7 @@ with open(budget_csv) as csvfile:
         else:
             vPL = int(row[1])
 
-
+# print the results to the terminal
 print(f"Financial Analysis")
 print(f"----------------------------")
 print(f"Total Months: {vMonths}")
@@ -50,3 +50,14 @@ print(f"Total: ${vTotalPL}")
 print(f"Average  Change: ${round(vDeltaTotal / (vMonths -1),2)}")
 print(f"Greatest Increase in Profits: {vDeltaPLMax[0]} (${vDeltaPLMax[1]})")
 print(f"Greatest Decrease in Profits: {vDeltaPLMin[0]} (${vDeltaPLMin[1]})")
+
+# print the results to the output file.
+analysis_csv = os.path.join("analysis", "PyBank_analysis.txt")
+with open(analysis_csv, "w") as analysis_file:
+    print(f"Financial Analysis", file=analysis_file)
+    print(f"----------------------------", file=analysis_file)
+    print(f"Total Months: {vMonths}", file=analysis_file)
+    print(f"Total: ${vTotalPL}", file=analysis_file)
+    print(f"Average  Change: ${round(vDeltaTotal / (vMonths -1),2)}", file=analysis_file)
+    print(f"Greatest Increase in Profits: {vDeltaPLMax[0]} (${vDeltaPLMax[1]})", file=analysis_file)
+    print(f"Greatest Decrease in Profits: {vDeltaPLMin[0]} (${vDeltaPLMin[1]})", file=analysis_file)
