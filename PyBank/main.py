@@ -20,8 +20,6 @@ with open(budget_csv) as csvfile:
     # this csv has a header row. 
     # Read the header row first
     csv_header = next(csvfile)
-    # print it out to prove we found the right file.
-    # print(f"Header: {csv_header}")
 # this csv has two columns.
 # the first column is the month (MMM-YYYY).
 # the second column is the profit/loss for that month.
